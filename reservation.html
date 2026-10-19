@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservation | Recipe Secrets</title>
+  <meta name="description" content="Reserve a table at Recipe Secrets. Choose your date, time, and party size and we'll take care of the rest." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Recipe <span>Secrets</span></a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="specials.html">Specials</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1920&q=80');">
+      <div class="container">
+        <span class="eyebrow">Book Ahead</span>
+        <h1>Reserve a Table</h1>
+        <p>We recommend booking at least 48 hours in advance, especially for weekends.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="form-wrap reveal">
+
+          <!--
+            FORMSPREE SETUP:
+            Replace YOUR_FORM_ID below with your real Formspree form ID
+            (from https://formspree.io), e.g. action="https://formspree.io/f/abc1234"
+          -->
+          <div class="formspree-note">
+            <strong>Setup note:</strong> This form posts to Formspree. Replace <code>YOUR_FORM_ID</code> in the form's <code>action</code> attribute with your real Formspree form ID before going live. See README.md.
+          </div>
+
+          <div id="reservation-confirmation" class="confirmation-message" tabindex="-1">
+            <strong>Thank you!</strong> Your reservation request has been received. We'll confirm by email or phone shortly.
+          </div>
+
+          <form id="reservation-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-name">Full Name <span class="required-mark">*</span></label>
+                <input type="text" id="res-name" name="name" required />
+                <span class="error-message">Please enter your name.</span>
+              </div>
+              <div class="form-group">
+                <label for="res-email">Email <span class="required-mark">*</span></label>
+                <input type="email" id="res-email" name="email" required />
+                <span class="error-message">Please enter a valid email address.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-phone">Phone <span class="required-mark">*</span></label>
+                <input type="tel" id="res-phone" name="phone" required />
+                <span class="error-message">Please enter your phone number.</span>
+              </div>
+              <div class="form-group">
+                <label for="res-guests">Party Size (1–12) <span class="required-mark">*</span></label>
+                <input type="number" id="res-guests" name="guests" min="1" max="12" required />
+                <span class="error-message">Party size must be between 1 and 12.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-date">Date <span class="required-mark">*</span></label>
+                <input type="date" id="res-date" name="date" required />
+                <span class="error-message">Please choose today or a future date.</span>
+              </div>
+              <div class="form-group">
+                <label for="res-time">Time <span class="required-mark">*</span></label>
+                <input type="time" id="res-time" name="time" required />
+                <span class="error-message">Please select a time.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="res-requests">Special Requests</label>
+              <textarea id="res-requests" name="special_requests" placeholder="Allergies, celebrations, seating preferences..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">Request Reservation</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Recipe <span>Secrets</span></div>
+          <p>A cozy modern-Asian fusion restaurant in Singapore.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="specials.html">Specials</a></li>
+            <li><a href="reservation.html">Reservation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>123 Orchard Road, Singapore 238858</li>
+            <li>+65 6123 4567</li>
+            <li>hello@recipesecrets.sg</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="current-year"></span> Recipe Secrets. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
