@@ -182,10 +182,22 @@ select:focus-visible {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-heading);
   font-size: 1.5rem;
   color: var(--color-cream);
   letter-spacing: 0.03em;
+  transition: transform var(--transition);
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+}
+
+.logo-mark {
+  flex-shrink: 0;
 }
 
 .logo span {
@@ -723,6 +735,9 @@ textarea {
 }
 
 .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-heading);
   font-size: 1.4rem;
   color: var(--color-cream);
